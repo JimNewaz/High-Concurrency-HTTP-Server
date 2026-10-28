@@ -4,7 +4,7 @@ A lightweight, single-file, production-grade Go HTTP server engineered to handle
 
 ---
 
-## 🚀 Benchmark Highlights
+## Benchmark Highlights
 
 Under a 30-second sustained load test running **5,000 concurrent client connections** hitting a simulated **50ms** backend workload:
 
@@ -26,9 +26,13 @@ Requests/sec:  96717.47
 Transfer/sec:     15.40MB
 ```
 
+<img width="722" height="428" alt="image" src="https://github.com/user-attachments/assets/bd75ddfa-835a-41cc-b6ff-c487c5a60b00" />
+
+![Uploading image.png…]()
+
 ---
 
-## 🛠️ Production Patterns Implemented
+## Production Patterns Implemented
 
 1. **Backpressure & Resource Limiting (Buffered Semaphore)**
    * Limits concurrent in-flight request processing to prevent memory exhaustion and goroutine explosion.
@@ -55,7 +59,7 @@ Transfer/sec:     15.40MB
 
 ---
 
-## 📋 Prerequisites & System Tuning
+## Prerequisites & System Tuning
 
 Default Linux configurations limit a single process to **1,024 open file descriptors**, which will fail under 5,000 concurrent connections. Tune the session limits before testing:
 
@@ -75,7 +79,7 @@ sudo sysctl -w net.ipv4.tcp_tw_reuse=1
 
 ---
 
-## 🏃 Quickstart
+## Quickstart
 
 ### Step 1: Start the Server
 
@@ -106,7 +110,7 @@ wrk -t12 -c5000 -d30s http://127.0.0.1:8080/
 
 ---
 
-## ⚙️ Configuration (Environment Variables)
+## Configuration (Environment Variables)
 
 All core parameters can be overridden using environment variables:
 
@@ -124,7 +128,7 @@ MAX_CONCURRENT=2500 QUEUE_TIMEOUT_MS=100ms go run main.go
 
 ---
 
-## 💻 Hardware Tested On
+## Hardware Tested On
 
 * **Processor:** Intel Core i7-10700K (8 Cores, 16 Threads @ 3.80GHz)
 * **Memory:** 32 GB RAM (DDR4)
